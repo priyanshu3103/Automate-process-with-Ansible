@@ -1,6 +1,6 @@
 # Ansible Practice
 
-
+<img src = "ansibleimg.png">
 
 ## Table of Contents:
 - ﻿Introduction 
