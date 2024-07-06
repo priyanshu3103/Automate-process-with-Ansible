@@ -1,0 +1,15 @@
+---
+- name: multiple user creation
+  hosts: all
+
+  tasks:
+  - name: User creation
+    user:
+      name: "{{ item }}"
+      shell: /bin/bash
+      group: devops
+    loop:
+      - kunika
+      - piyush
+      - shreyash
+      - swayam 

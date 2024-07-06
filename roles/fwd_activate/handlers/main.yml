@@ -1,0 +1,8 @@
+---
+# handlers file for fwd_activate
+
+- name: Reload firewalld
+  service:
+    name: firewalld
+    state: reloaded
+

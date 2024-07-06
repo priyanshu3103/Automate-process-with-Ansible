@@ -1,0 +1,9 @@
+---
+- name: First basic playbook
+  hosts: 192.168.29.62
+
+  tasks:
+  - name: Test connectivity
+    ping:
+  - name: "Print Output"
+    debug: msg="Alright!!"

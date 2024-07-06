@@ -1,0 +1,11 @@
+---
+# tasks file for fwd_activate
+
+
+- name: Enable firewalld
+  firewalld:
+    service: http
+    permanent: true
+    state: enabled
+  notify:
+    - Reload firewalld 

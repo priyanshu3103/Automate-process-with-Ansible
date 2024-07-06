@@ -1,0 +1,12 @@
+---
+- name: Download file on remote server
+  hosts: all
+
+  tasks:
+  - name: Download file
+    get_url:
+      url: https://www.python.org/ftp/python/3.12.4/Python-3.12.4.tar.xz
+      dest: /tmp/scripts/
+      owner: priyanshu3006
+      group: devops
+      mode: u=rwx,g=r,o=r

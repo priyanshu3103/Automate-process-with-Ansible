@@ -1,0 +1,11 @@
+---
+- name: User management
+  hosts: all
+
+  tasks:
+  - name: Create user
+    user:
+      name: priyanshu3006
+      comment: new user added
+      shell: /bin/bash
+      groups: devops,priyanshu3006

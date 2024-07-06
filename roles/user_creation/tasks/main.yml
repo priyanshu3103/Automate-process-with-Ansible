@@ -1,0 +1,51 @@
+---
+# tasks file for user_creation
+- name: user creation
+  user:
+    name: "{{ user_ }}"
+    shell: /bin/bash
+    comment: New user 
+    group: devops
+
+- name: Set passwd to the user
+  user:
+    name: "{{ user_ }}"
+    update_password: always
+    password: "{{'benteen@123' | password_hash('sha512')}}"
+
+- name: Create directory
+  file:
+    path: /tmp/userdata
+    state: directory
+    owner: "{{ user_ }}"
+
+- name: copy file to remote server
+  copy:
+    src: /root/file.txt
+    dest: /tmp/userdata
+    owner: "{{ user_ }}"
+    mode: u=rwx,g=rw,o=r
+
+- name: install web server on remote server
+  yum:
+    name: nginx
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: install httpd on remote
+  yum:
+    name: httpd
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: kill the running process
+  shell: "pgrep httpd | xargs kill"
+
+- name: start the nginx service
+  service:
+    name: nginx
+    state: started
+    
+
+
+

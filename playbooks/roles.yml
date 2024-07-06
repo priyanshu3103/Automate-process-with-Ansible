@@ -1,0 +1,6 @@
+---
+- name: Execute roles
+  hosts: all
+  roles:
+    - user_creation
+    - fwd_activate

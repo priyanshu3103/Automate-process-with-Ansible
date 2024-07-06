@@ -1,0 +1,12 @@
+---
+- name: Install packages
+  hosts: all
+  vars:
+    - apps: [docker,telnet,traceroute,nano]
+
+  tasks:
+  - name: install package
+    yum:
+      name: "{{ item }}"
+      state: present
+    with_items: "{{ apps }}"

@@ -1,0 +1,19 @@
+---
+- name: Change firewall setting
+  hosts: all
+  become: true
+
+  tasks:
+  - name: change setting
+    firewalld:
+      port: 80/tcp
+      permanent: true
+      state: enabled
+    notify:
+      - reload service
+
+  handlers:
+  - name: reload service
+    service:
+      name: firewalld
+      state: reloaded

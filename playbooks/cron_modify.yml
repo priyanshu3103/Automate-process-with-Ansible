@@ -1,0 +1,13 @@
+---
+- name: modify cronjob
+  hosts: all
+
+  tasks:
+  - name: Removing job
+    cron:
+      name: var
+      env: yes
+      user: centos02
+      job: /tmp/scripts/
+      insertbefore: varble
+

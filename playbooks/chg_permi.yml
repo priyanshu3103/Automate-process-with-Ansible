@@ -1,0 +1,9 @@
+---
+- name: Change permission
+  hosts: all
+
+  tasks:
+  - name: Premission change
+    file:
+      path: /tmp/ansible_folder
+      mode: u=x,g=r

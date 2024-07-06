@@ -1,0 +1,13 @@
+---
+- name: kill running process
+  hosts: all
+
+  tasks:
+  - name: kill process
+    ignore_errors: yes
+    shell: "pgrep httpd | xargs kill"
+
+  - name: start httpd
+    service:
+      name: httpd
+      state: started

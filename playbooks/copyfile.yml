@@ -1,0 +1,13 @@
+---
+- name: Copy file 
+  hosts: all
+
+  tasks:
+  - name: Copy file from source
+    copy:
+      src: /root/file.txt
+      dest: /tmp/
+      owner: centos02
+      group: centos02
+      mode: ugo=rw
+      backup: true

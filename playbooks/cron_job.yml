@@ -1,0 +1,16 @@
+---
+- name: Cron Job
+  hosts: all
+
+  tasks:
+  - name: Run script using crontab
+    cron:
+      name: Run test script
+      minute: 10
+      hour: "*"
+      day: "*"
+      month: "*"
+      weekday: "*"
+      user: centos02
+      job: /tmp/scripts/tesh.sh
+      disabled: true

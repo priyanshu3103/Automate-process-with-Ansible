@@ -1,0 +1,16 @@
+---
+- name: Install Docker
+  hosts: all
+    
+  tasks:
+  - name: Installing Docker Engine
+    yum:
+      name: docker
+      state: present
+        
+  - name: Start docker service
+    service:
+      name: docker
+      state: started
+      enabled: true  
+    
